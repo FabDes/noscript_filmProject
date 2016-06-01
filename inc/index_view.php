@@ -4,6 +4,17 @@
 	<meta charset="utf-8">
 	<title>Accueil</title>
 </head>
+<header>
+	<nav>
+		<ul>
+			<li><a href="index.php">Accueil</a></li>
+			<li><a href="categorie.php">Catégories</a></li>
+			<li><a href="crud.php">Ajouter un film</a></li>
+		</ul>
+	</nav>
+	<input type="search" placeholder="Recherche" name="the_search">
+	<button type="submit" name="OK">OK</button>
+</header>
 <body>
 	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
