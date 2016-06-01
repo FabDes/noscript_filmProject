@@ -10,7 +10,7 @@ SELECT COUNT(mov_id), category.cat_name
 FROM movie
 INNER JOIN category ON category.cat_id = movie.cat_id
 GROUP BY cat_name
-LIMIT 4 ASC
+LIMIT 4
 ';
 $pdoStatement = $pdo->prepare($sql);
 
