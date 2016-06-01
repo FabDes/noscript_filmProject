@@ -15,10 +15,9 @@
 	<button type="submit" name="OK">OK</button>
 	<nav>
 		<ul>
-			<li><a href="#">Catégorie1(xx)</a></li>
-			<li><a href="#">Catégorie2(xx)</a></li>
-			<li><a href="#">Catégorie3(xx)</a></li>
-			<li><a href="#">Catégorie3(xx)</a></li>
+		<?php foreach ($categorySort as $key => $value):?>
+			<li><a href="#"><?= $value['cat_name'].' ('.$value[0].')'?></a></li>
+		<?php endforeach; ?>
 		</ul>
 	</nav>
 	<span>

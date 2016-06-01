@@ -21,3 +21,5 @@ else if ($pdoStatement->rowCount()>0){
 	$categorySort= $pdoStatement->fetchAll();
 	print_r($categorySort);
 }
+
+require 'inc/index_view.php';
