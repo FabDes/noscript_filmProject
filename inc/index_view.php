@@ -20,21 +20,11 @@
 		<?php endforeach; ?>
 		</ul>
 	</nav>
+	<?php foreach ($randomImg as $key => $value):?>
 	<span>
-		<img src="../img/Fast.jpg">
-		<a href="#">Fast & Furious</a>
+		<img src="<?= $value['mov_image'] ?>">
+		<a href="#"><?= $value['mov_title'] ?></a>
 	</span>
-	<span>
-		<img src="../img/Fast.jpg">
-		<a href="#">Fast & Furious</a>
-	</span>
-	<span>
-		<img src="../img/Fast.jpg">
-		<a href="#">Fast & Furious</a>
-	</span>
-	<span>
-		<img src="../img/Fast.jpg">
-		<a href="#">Fast & Furious</a>
-	</span>
+	<?php endforeach; ?>
 </body>
 </html>

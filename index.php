@@ -22,4 +22,22 @@ else if ($pdoStatement->rowCount()>0){
 	print_r($categorySort);
 }
 
+$randomImg= array();
+//j ecris ma requete pour la recherche
+$sql='
+SELECT mov_image, mov_title, mov_id
+FROM movie
+ORDER BY RAND()
+LIMIT 4
+';
+$pdoStatement = $pdo->prepare($sql);
+
+if ($pdoStatement ->execute() === false){
+	print_r($pdo->errorInfo());
+}
+else if ($pdoStatement->rowCount()>0){
+	$randomImg= $pdoStatement->fetchAll();
+	print_r($randomImg);
+}
+
 require 'inc/index_view.php';
