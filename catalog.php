@@ -1,6 +1,14 @@
 <?php
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
+//nb de film 
+$nbFilm = 3;
+$currentOffset= 0;
+	
+if(array_key_exists('offset', $_GET)){ 
+	$currentOffset = intval($_GET['offset']);
+}
+
 
 // the_search. 
 $search = array();
@@ -12,11 +20,15 @@ if(!empty($_GET['the_search'])){
 		FROM movie
 		INNER JOIN category ON category.cat_id = movie.cat_id
 		WHERE mov_title = :mov_title
+		LIMIT :offset,:nbFilm
 	';
 
 	$pdoStatement = $pdo->prepare($sqlSearch);
 
 	$pdoStatement->bindValue(':mov_title', $theSearch, PDO::PARAM_STR);
+	$pdoStatement->bindValue(':nbFilm', $nbFilm, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':offset', $currentOffset, PDO::PARAM_INT);
+
 	if ($pdoStatement->execute() === false){
 		print_r($pdoStatement->errorInfo());
 	}
