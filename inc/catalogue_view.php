@@ -31,8 +31,8 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua.
 		</p>
-		<button><a href="crud.php">Détails</a></button>
-		<button><a href="cru.php">Modifier</a></button>
+		<button><a href="cru.php">Détails</a></button>
+		<button><a href="crud.php">Modifier</a></button>
 	</div>
 	<div class="movieCat">
 		<img src="../img/Fast.jpg">
@@ -41,8 +41,8 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua.
 		</p>
-		<button><a href="crud.php">Détails</a></button>
-		<button><a href="cru.php">Modifier</a></button>
+		<button><a href="cru.php">Détails</a></button>
+		<button><a href="crud.php">Modifier</a></button>
 	</div>
 	<div class="movieCat">
 		<img src="../img/Fast.jpg">
@@ -51,8 +51,8 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			tempor incididunt ut labore et dolore magna aliqua.
 		</p>
-		<button><a href="crud.php">Détails</a></button>
-		<button><a href="cru.php">Modifier</a></button>
+		<button><a href="cru.php">Détails</a></button>
+		<button><a href="crud.php">Modifier</a></button>
 	</div>
 	<div>
 		<a href="#">< Précédent</a>
