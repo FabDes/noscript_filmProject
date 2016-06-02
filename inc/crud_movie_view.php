@@ -18,35 +18,36 @@
 </header>
 <body>
 	<div>
-		<h3>Gestion du film : <?= $fileGetTable['title'] ?></h3>
+		<h3>Gestion du film : <?= $fileGetTable{'Title'}; ?></h3>
 		<form action="" method="get">
 			<input type="text" name="search_OMDB" placeholder="entrer votre film à ajouter">
 			<input type="submit" value="rechercher film">
 		</form><br>
 		<form action="" method="post" enctype="multipart/form-data">
 			<label>Titre du film</label><br>
-		    <input type="text" name="add_film_title"><br>
+		    <input type="text" name="add_film_title" value="<?= $fileGetTable{'Title'}; ?>"><br>
 		    <br>
 		    <label>Catégorie du film</label><br>
-		    <input type="text" name="add_film_category"><br>
+		    <input type="text" name="add_film_category" value=""><?= ' Choisissez le genre : '. $fileGetTable{'Genre'}; ?><br>
 		    <br>
 		    <label>Synopsis</label><br>
-		    <textarea rows="4" cols="50" name="add_film_synopsis"></textarea><br>
+		    <textarea rows="5" cols="50" type="text" name="add_film_synopsis"><?= $fileGetTable{'Plot'}; ?></textarea><br>
 		    <br>
 		    <label>Chemin de stockage</label><br>
-		    <input type="text" name="add_film_path"><br>
+		    <input type="text" name="add_film_path" value="<?= $fileGetTable{'Poster'}; ?>"><br>
 		    <br>	
 		    <label>Titre Original</label><br>
-		    <input type="text" name="add_film_VO_title"><br>
+		    <input type="text" name="add_film_VO_title" value="<?= $fileGetTable{'Title'}; ?>"><br>
 		    <br>
 		    <label>Image du film</label><br>
-			<input type="file" name="add_film_pic"><br>
+			<input type="file" name="add_film_pic" value="<?= $fileGetTable{'Poster'}; ?>"><br>
 			<input type="submit" value="Télécharger">
+	    
+		    <br>
+		    <br>
+		    <button type="submit">Supprimer</button>
+		    <button type="submit">Valider</button>
 	    </form>
-	    <br>
-	    <br>
-	    <button type="submit">Supprimer</button>
-	    <button type="submit">Valider</button>
 	</div>
 </body>
 </html>
