@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>Accueil</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<main>
 <header>
 	<nav>
 		<ul>
@@ -12,7 +16,7 @@
 			<li><a href="crud.php">Ajouter un film</a></li>
 		</ul>
 	</nav>
-	<form method="GET" action="catalog.php">
+	<form id="search_all" method="GET" action="catalog.php">
 		<input type="search" placeholder="Recherche" name="the_search">
 		<button type="submit" name="OK">OK</button>
 	</form>
@@ -25,11 +29,11 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	
-	<form method="GET" action="catalog.php">
-		<input type="search" placeholder="Recherche" name="the_search">
-		<button type="submit" name="OK">OK</button>
+	<form  method="GET" action="catalog.php">
+		<input id="the_search" type="search" placeholder="Recherche" name="the_search">
+		<button id="the_button" type="submit" name="OK">OK</button>
 	</form>
-	<nav>
+	<nav id="nav_cat">
 		<ul>
 		<?php foreach ($categorySort as $key => $value):?>
 			<li><a href="#"><?= $value['cat_name'].' ('.$value[0].')'?></a></li>
@@ -37,10 +41,11 @@
 		</ul>
 	</nav>
 	<?php foreach ($randomImg as $key => $value):?>
-	<span>
-		<img src="<?= $value['mov_image'] ?>">
-		<a href="#"><?= $value['mov_title'] ?></a>
-	</span>
+	<div class="imgLien">
+		<img class="img_movie" src="<?= $value['mov_image'] ?>">
+		<a class="titel_movie" href="#"><?= $value['mov_title'] ?></a>
+	</div>
 	<?php endforeach; ?>
 </body>
+</main>
 </html>

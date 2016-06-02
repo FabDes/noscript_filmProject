@@ -8,20 +8,25 @@ if(!empty($_GET['the_search'])){
 	$theSearch = $_GET['the_search'];// type?
 
 	$sqlSearch = '
-		SELECT mov_title, mov_cat, mov_synopsis, mov_path, mov_cast
+		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
 		FROM movie
+		INNER JOIN category ON category.cat_id = movie.cat_id
 		WHERE mov_title = :mov_title
 	';
 
 	$pdoStatement = $pdo->prepare($sqlSearch);
 
-	$pdoStatement->bindValue( ':mov_title', '%$theSearch%');
-	if ($pdoStatement ->execute() === false){
-		print_r($pdo->errorInfo());
+	$pdoStatement->bindValue(':mov_title', $theSearch, PDO::PARAM_STR);
+	if ($pdoStatement->execute() === false){
+		print_r($pdoStatement->errorInfo());
 	}
 	else if ($pdoStatement->rowCount()>0){
 		$search= $pdoStatement->fetchAll();
-		}
+		print_r($search);
+	}
+	else {
+		echo 'aucun resultat';
+	}
 }
 
 // list catalogue

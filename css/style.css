@@ -1,0 +1,137 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,700);
+@import url(http://allfont.net/allfont.css?fonts=franklin-gothic-heavy);
+
+*{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+main{
+	width: 1000px;
+	margin: 30px auto;
+}
+body{
+	background-color: #ececed ;
+	font-family: Ubuntu;
+	color:  #2c2d2d;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+a{
+	text-decoration: none;
+}
+p {
+	text-align: justify;
+	margin: auto 100px;
+}
+
+nav{
+	text-align: left;
+	display: inline-block;
+
+}
+nav ul li{
+	display: inline-block;
+}
+nav ul li a{
+	width: 150px;
+  	height: 40px;
+  	background-color:  #c0c0c2;
+  	color: #FFFFFF;
+  	display: inline-block;
+  	border: 1px solid #FFFFFF;
+  	text-transform: uppercase;
+  	text-align: center;
+  	padding: 10px;
+  	vertical-align: top;
+}
+
+nav a:hover{
+	background-color: #6c9ce4;
+}
+
+#search_all{
+	float: right;
+}
+
+img{
+	width: 150px;
+  	height: 200px;
+}
+input{
+	width: 200px;
+  	height: 40px;
+}
+button{
+	width: 50px;
+  	height: 40px;
+}
+
+p{
+	margin: 50px auto;
+}
+
+
+#the_search{
+	width: 500px;
+	height: 100px;
+	padding: 10px;
+	margin-left: 200px;
+	margin-bottom: 50px;
+}
+#the_button{
+	width: 100px;
+	height: 100px;
+}
+
+input, {
+	width: 20px;
+	padding: 10px;
+	margin : 10px 0 ;
+}
+#nav_cat{
+	display: block;
+	text-align: center;
+	margin-bottom: 50px;
+
+
+}
+.imgLien{
+	display: inline-block;
+	margin-left: 78px;
+}
+.img_movie{
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #FFFFFF;
+
+}
+.titel_movie{
+	display: block;
+	text-align: center;
+	width: 150px;
+  	height: 40px;
+  	background-color:  #c0c0c2;
+  	color: #FFFFFF;
+  	border: 1px solid #FFFFFF;
+  	text-transform: uppercase;
+  	padding: 10px;
+}
+.imgLien a:hover{
+	background-color: #6c9ce4;
+}
+select{
+	width: 150px;
+  	height: 40px;
+  	background-color:  #c0c0c2;
+  	color: #FFFFFF;
+  	border: 1px solid #FFFFFF;
+  	text-transform: uppercase;
+  	padding: 10px;
+}
+option{
+	text-align: center;
+}
+
