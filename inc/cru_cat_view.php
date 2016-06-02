@@ -18,17 +18,22 @@
 <body>
 	<div>
 		<h3>Gestion des catégories</h3>
-		<form action="#">
+		<form action="" method="post">
 		    <select name="categorie" size="1">
-		    	<option>Nouvelle catégorie</option> 
-			    <option>catégorie</option> 
+		    	<option value="new">Nouvelle catégorie</option> 
+
+		    	<?php foreach ($selectCategory as $key => $value) : ?>
+			    	<option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option> 		
+		    	<?php endforeach; ?>
 
 			</select>
+			<br>
+	   
+	    	<input type="text" name="renameCategorie">
+	    	<br>
+	    	
+	    	<button type="submit">Valider</button>
 	    </form>
-	    <form>
-	    	<input type="text" name="Categorie">
-	    </form>
-	    <button type="submit">Valider</button>
 	</div>
 </body>
 </html>
