@@ -28,7 +28,12 @@
 		    <input type="text" name="add_film_title" value="<?= $fileGetTable{'Title'}; ?>"><br>
 		    <br>
 		    <label>Catégorie du film</label><br>
-		    <input type="text" name="add_film_category" value=""><?= ' Choisissez le genre : '. $fileGetTable{'Genre'}; ?><br>
+		     <select name="categorie" size="1">
+		    	<?php foreach ($selectCategory as $key => $value) : ?>
+			    	<option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option> 		
+		    	<?php endforeach; ?>
+			</select>
+			<?= ' Choisissez le genre : '. $fileGetTable{'Genre'}; ?><br>
 		    <br>
 		    <label>Synopsis</label><br>
 		    <textarea rows="5" cols="50" type="text" name="add_film_synopsis"><?= $fileGetTable{'Plot'}; ?></textarea><br>

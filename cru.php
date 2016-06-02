@@ -1,21 +1,11 @@
 <?php
+//appel de ce qui contient ma fonction
+require 'inc/functions.php';
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
 
-$sql = '
-	SELECT cat_id, cat_name
-	FROM category
-';
-$pdoStatement = $pdo->query($sql);
-if ($pdoStatement->execute()==false) {
-	print_r($pdo->errorInfo());
-}
-else {
-	if ($pdoStatement->rowCount() > 0) {
-		$selectCategory = $pdoStatement->fetchAll();
-		//print_r($selectCategory);
-	}
-}
+//function qui affiche mon select catégorie de films
+selectCategory();
 
 if (isset($_POST) && !empty($_POST)) {
 	$newNameCat = isset($_POST['renameCategorie']) ? strip_tags(trim($_POST['renameCategorie'])) : '';
@@ -60,9 +50,6 @@ if (isset($_POST) && !empty($_POST)) {
 			print_r($pdoCreate->errorInfo());
 		}
 	}
-	//fin $_post rempli
 }//fin isset $_post
-
-//print_r($_POST);
 
 require 'inc/cru_cat_view.php';
