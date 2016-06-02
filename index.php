@@ -18,7 +18,7 @@ if ($pdoStatement->execute() === false){
 }
 else if ($pdoStatement->rowCount()>0){
 	$categorySort= $pdoStatement->fetchAll();
-	print_r($categorySort);
+	//print_r($categorySort);
 }
 
 $randomImg= array();
@@ -36,7 +36,7 @@ if ($pdoStatement ->execute() === false){
 }
 else if ($pdoStatement->rowCount()>0){
 	$randomImg= $pdoStatement->fetchAll();
-	print_r($randomImg);
+	//print_r($randomImg);
 }
 
 
