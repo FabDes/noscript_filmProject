@@ -42,9 +42,9 @@
 }
 ?>	
 	<div>
-		<a href="catalog.php?mov_id=<?=$search ?>&offset=<?=($currentOffset-$nbFilm)?>">< Précédent</a>
+		<a href="catalog.php?the_search=<?=$theSearch ?>&offset=<?=($currentOffset-$nbFilm)?>">< Précédent</a>
 		<p>Page du catalogue</p>
-		<a href="catalog.php?mov_id=<?= $search ?>&offset=<?=($currentOffset+$nbFilm)?>">Suivant ></a>
+		<a href="catalog.php?the_search=<?= $theSearch ?>&offset=<?=($currentOffset+$nbFilm)?>">Suivant ></a>
 	</div>
 
 </body>
