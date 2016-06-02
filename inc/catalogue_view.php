@@ -12,8 +12,10 @@
 			<li><a href="#">Ajouter un film</a></li>
 		</ul>
 	</nav>
+	<form method="GET" action="catalog.php">
 	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
+	<button type="submit">OK</button>
+	</form>
 </header>
 <body>
 	<div>
@@ -23,37 +25,22 @@
 			</select>
 	    </form>
 	</div>
+<?php
 
-	<div class="movieCat">
-		<img src="../img/Fast.jpg">
-		<p>#ID1</p>
-		<h1>Titre du film</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.
-		</p>
-		<button><a href="cru.php">Détails</a></button>
-		<button><a href="crud.php">Modifier</a></button>
-	</div>
-	<div class="movieCat">
-		<img src="../img/Fast.jpg">
-		<p>#ID2</p>
-		<h1>Titre du film</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.
-		</p>
-		<button><a href="cru.php">Détails</a></button>
-		<button><a href="crud.php">Modifier</a></button>
-	</div>
-	<div class="movieCat">
-		<img src="../img/Fast.jpg">
-		<p>#ID3</p>
-		<h1>Titre du film</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.
-		</p>
-		<button><a href="cru.php">Détails</a></button>
-		<button><a href="crud.php">Modifier</a></button>
-	</div>
+	foreach ($search as $key => $value) {
+?>
+		<div class="movieCat">
+			<img src="<?= $value['mov_image'] ?>">
+			<p>#<?= $value['mov_id'] ?></p>
+			<h1><?= $value['mov_title'] ?></h1>
+			<p><?= $value['mov_synopsis'] ?></p>
+			<button><a href="#">Détails</a></button>
+			<button><a href="#">Modifier</a></button>
+		</div>
+<?php
+	
+}
+?>	
 	<div>
 		<a href="#">< Précédent</a>
 		<p>Page du catalogue</p>
