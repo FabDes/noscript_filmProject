@@ -2,16 +2,15 @@
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
 
-
 $categorySort= array();
-//j ecris ma requete pour la recherche
+
 $sql='
-SELECT COUNT(mov_id), category.cat_name
-FROM movie
-INNER JOIN category ON category.cat_id = movie.cat_id
-GROUP BY cat_name
-LIMIT 4
-';
+	SELECT COUNT(mov_id), category.cat_name
+	FROM movie
+	INNER JOIN category ON category.cat_id = movie.cat_id
+	GROUP BY cat_name
+	LIMIT 4
+	';
 $pdoStatement = $pdo->prepare($sql);
 
 if ($pdoStatement ->execute() === false){
@@ -23,13 +22,13 @@ else if ($pdoStatement->rowCount()>0){
 }
 
 $randomImg= array();
-//j ecris ma requete pour la recherche
+
 $sql='
-SELECT mov_image, mov_title, mov_id
-FROM movie
-ORDER BY RAND()
-LIMIT 4
-';
+	SELECT mov_image, mov_title, mov_id
+	FROM movie
+	ORDER BY RAND()
+	LIMIT 4
+	';
 $pdoStatement = $pdo->prepare($sql);
 
 if ($pdoStatement ->execute() === false){

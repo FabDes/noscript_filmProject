@@ -19,7 +19,7 @@
 	<div>
 		<h3>Gestion des catégories</h3>
 		<form action="#">
-		    <select name="categorie" size="1">
+		    <select name="category" size="1">
 		    	<option>Nouvelle catégorie</option> 
 			    <option>catégorie</option> 
 

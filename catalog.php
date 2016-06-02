@@ -1,6 +1,7 @@
 <?php
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
+
 // the_search. 
 $search = array();
 if(!empty($_GET['the_search'])){
