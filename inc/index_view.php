@@ -12,8 +12,10 @@
 			<li><a href="crud.php">Ajouter un film</a></li>
 		</ul>
 	</nav>
-	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
+	<form method="GET" action="catalog.php">
+		<input type="search" placeholder="Recherche" name="the_search">
+		<button type="submit" name="OK">OK</button>
+	</form>
 </header>
 <body>
 	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -22,8 +24,11 @@
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
+	
+	<form method="GET" action="catalog.php">
+		<input type="search" placeholder="Recherche" name="the_search">
+		<button type="submit" name="OK">OK</button>
+	</form>
 	<nav>
 		<ul>
 		<?php foreach ($categorySort as $key => $value):?>
