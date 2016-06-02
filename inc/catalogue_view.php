@@ -38,17 +38,17 @@
 			<p>#<?= $value['mov_id'] ?></p>
 			<h1><?= $value['mov_title'] ?></h1>
 			<p><?= $value['mov_synopsis'] ?></p>
-			<button><a href="#">Détails</a></button>
-			<button><a href="#">Modifier</a></button>
+			<button><a href="details.php">Détails</a></button>
+			<button><a href="cru.php">Modifier</a></button>
 		</div>
 <?php
 	
 }
 ?>	
 	<div>
-		<a href="#">< Précédent</a>
+		<a href="catalog.php?mov_id=<?=$search ?>&offset=<?=($currentOffset-$nbFilm)?>">< Précédent</a>
 		<p>Page du catalogue</p>
-		<a href="#">Suivant ></a>
+		<a href="catalog.php?mov_id=<?= $search ?>&offset=<?=($currentOffset+$nbFilm)?>">Suivant ></a>
 	</div>
 
 </body>
