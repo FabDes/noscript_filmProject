@@ -14,11 +14,11 @@
 		</ul>
 	</nav>
 	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
+	<button type="submit">OK</button>
 </header>
 <body>
 	<div>
-		<h3>Gestion du film : #</h3>
+		<h3>Gestion du film : <?= $fileGetTable['title'] ?></h3>
 		<form action="" method="get">
 			<input type="text" name="search_OMDB" placeholder="entrer votre film à ajouter">
 			<input type="submit" value="rechercher film">
