@@ -103,7 +103,7 @@ input, {
 	margin-left: 78px;
 }
 .img_movie{
-	display: inline-block;
+	display: block;
 	text-align: center;
 	border: 1px solid #FFFFFF;
 

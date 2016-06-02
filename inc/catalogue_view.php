@@ -2,19 +2,23 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Catalogue view</title>
+	<title>Catalogue</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<main>
 <header>
 	<nav>
 		<ul>
-			<li><a href="#">Accueil</a></li>
-			<li><a href="#">Catégories</a></li>
-			<li><a href="#">Ajouter un film</a></li>
+			<li><a href="index.php">Accueil</a></li>
+			<li><a href="categorie.php">Catégories</a></li>
+			<li><a href="crud.php">Ajouter un film</a></li>
 		</ul>
 	</nav>
-	<form method="GET" action="catalog.php">
-	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit">OK</button>
+	<form id="search_all" method="GET" action="catalog.php">
+		<input type="search" placeholder="Recherche" name="the_search">
+		<button type="submit" name="OK">OK</button>
 	</form>
 </header>
 <body>
@@ -34,18 +38,17 @@
 			<p>#<?= $value['mov_id'] ?></p>
 			<h1><?= $value['mov_title'] ?></h1>
 			<p><?= $value['mov_synopsis'] ?></p>
-			<button><a href="../details.php">Détails</a></button>
-			<button><a href="../cru.php">Modifier</a></button>
+			<button><a href="#">Détails</a></button>
+			<button><a href="#">Modifier</a></button>
 		</div>
 <?php
 	
 }
 ?>	
 	<div>
-		<a href="catalog.php?mov_id=<?= 
-		 ?>&offset=<?=($currentOffset-$nbPerPage)?>">< Précédent</a>
+		<a href="#">< Précédent</a>
 		<p>Page du catalogue</p>
-		<a href="catalog.php?mov_id=<?= $movID ?>&offset=<?=($currentOffset+$nbPerPage)?>">Suivant ></a>
+		<a href="#">Suivant ></a>
 	</div>
 
 </body>
