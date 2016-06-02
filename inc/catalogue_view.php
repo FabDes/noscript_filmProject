@@ -42,7 +42,8 @@
 }
 ?>	
 	<div>
-		<a href="catalog.php?mov_id=<?= $movID ?>&offset=<?=($currentOffset-$nbPerPage)?>">< Précédent</a>
+		<a href="catalog.php?mov_id=<?= 
+		 ?>&offset=<?=($currentOffset-$nbPerPage)?>">< Précédent</a>
 		<p>Page du catalogue</p>
 		<a href="catalog.php?mov_id=<?= $movID ?>&offset=<?=($currentOffset+$nbPerPage)?>">Suivant ></a>
 	</div>
