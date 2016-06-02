@@ -19,24 +19,28 @@
 <body>
 	<div>
 		<h3>Gestion du film : #</h3>
+		<form action="" method="get">
+			<input type="text" name="search_OMDB" placeholder="entrer votre film à ajouter">
+			<input type="submit" value="rechercher film">
+		</form><br>
 		<form action="" method="post" enctype="multipart/form-data">
-			<label>Titre du film</label>
-		    <input type="text" name=""><br>
+			<label>Titre du film</label><br>
+		    <input type="text" name="add_film_title"><br>
 		    <br>
-		    <label>Catégorie du film</label>
-		    <input type="text" name=""><br>
+		    <label>Catégorie du film</label><br>
+		    <input type="text" name="add_film_category"><br>
 		    <br>
-		    <label>Synopsis</label>
-		    <input type="text" name=""><br>
+		    <label>Synopsis</label><br>
+		    <textarea rows="4" cols="50" name="add_film_synopsis"></textarea><br>
 		    <br>
-		    <label>Chemin de stockage</label>
-		    <input type="text" name=""><br>
+		    <label>Chemin de stockage</label><br>
+		    <input type="text" name="add_film_path"><br>
 		    <br>	
-		    <label>Titre Original</label>
-		    <input type="text" name=""><br>
+		    <label>Titre Original</label><br>
+		    <input type="text" name="add_film_VO_title"><br>
 		    <br>
-		    <label>Image du film</label>
-			<input type="file" name="moviePicture">
+		    <label>Image du film</label><br>
+			<input type="file" name="add_film_pic"><br>
 			<input type="submit" value="Télécharger">
 	    </form>
 	    <br>
