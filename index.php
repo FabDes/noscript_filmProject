@@ -40,4 +40,24 @@ else if ($pdoStatement->rowCount()>0){
 	print_r($randomImg);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require 'inc/index_view.php';
