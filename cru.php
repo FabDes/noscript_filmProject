@@ -1,11 +1,11 @@
 <?php
-//appel de ce qui contient ma fonction
-require 'inc/functions.php';
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
+//appel de ce qui contient mes fonctions
+require 'inc/functions.php';
 
 //function qui affiche mon select catégorie de films
-selectCategory();
+categoryFunction();
 
 if (isset($_POST) && !empty($_POST)) {
 	$newNameCat = isset($_POST['renameCategorie']) ? strip_tags(trim($_POST['renameCategorie'])) : '';
