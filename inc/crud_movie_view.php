@@ -18,35 +18,50 @@
 </header>
 <body>
 	<div>
-		<h3>Gestion du film : <?= $fileGetTable{'Title'}; ?></h3>
+		<h3>Gestion du film : <?php if (isset($fileGetTable['Title'])) {echo $fileGetTable['Title'];} ?></h3>
 		<form action="" method="get">
 			<input type="text" name="search_OMDB" placeholder="entrer votre film à ajouter">
 			<input type="submit" value="rechercher film">
-		</form><br>
+		</form>
+		<br>
+
 		<form action="" method="post" enctype="multipart/form-data">
 			<label>Titre du film</label><br>
-		    <input type="text" name="add_film_title" value="<?= $fileGetTable{'Title'}; ?>"><br>
+		    <input type="text" name="add_film_title" value="<?php if (isset($fileGetTable['Title'])) {echo $fileGetTable['Title'];} ?>"><br>
 		    <br>
+
 		    <label>Catégorie du film</label><br>
-		    <input type="text" name="add_film_category" value=""><?= ' Choisissez le genre : '. $fileGetTable{'Genre'}; ?><br>
+		     <select name="categorie" size="1">
+	    	<?php foreach ($selectCategory as $key => $value) : ?>
+		    	<option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option> 		
+	    	<?php endforeach; ?>
+			</select>
+			<?php if (isset($fileGetTable['Genre'])) {echo ' <u>Choisissez le genre :</u> '.$fileGetTable['Genre'];} ?><br>
 		    <br>
+
 		    <label>Synopsis</label><br>
-		    <textarea rows="5" cols="50" type="text" name="add_film_synopsis"><?= $fileGetTable{'Plot'}; ?></textarea><br>
+		    <textarea rows="5" cols="50" type="text" name="add_film_synopsis"><?php if (isset($fileGetTable['Plot'])) {echo $fileGetTable['Plot'];} ?></textarea><br>
 		    <br>
+
 		    <label>Chemin de stockage</label><br>
-		    <input type="text" name="add_film_path" value="<?= $fileGetTable{'Poster'}; ?>"><br>
-		    <br>	
+		    <input type="text" name="add_film_path" value="" placeholder="où est stocké votre film ?"><br>
+<!-- select sur le type de stockage du film BDD -->
+		   	<select name="storage">
+		   	<?php foreach ($selectStorage as $key => $value) : ?>
+		   		<option value="<?= $value['sto_id'] ?>"><?= $value['sto_name'] ?></option>
+		   	<?php endforeach; ?>
+		   	</select><br>
+		    <br>
+
 		    <label>Titre Original</label><br>
-		    <input type="text" name="add_film_VO_title" value="<?= $fileGetTable{'Title'}; ?>"><br>
+		    <input type="text" name="add_film_VO_title" value="<?php if (isset($fileGetTable['Title'])) {echo $fileGetTable['Title'];} ?>"><br>
 		    <br>
+
 		    <label>Image du film</label><br>
-			<input type="file" name="add_film_pic" value="<?= $fileGetTable{'Poster'}; ?>"><br>
-			<input type="submit" value="Télécharger">
-	    
+			<input type="text" name="add_film_pic" value="<?php if (isset($fileGetTable['Poster'])) {echo $fileGetTable['Poster'];} ?>"><br>	    
 		    <br>
-		    <br>
-		    <button type="submit">Supprimer</button>
-		    <button type="submit">Valider</button>
+
+		    <br><input type="submit" value="Ajouter">
 	    </form>
 	</div>
 </body>
