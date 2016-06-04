@@ -35,7 +35,8 @@
 			<h1><?= $value['mov_title'] ?></h1>
 			<p><?= $value['mov_synopsis'] ?></p>
 			<button><a href="details.php">Détails</a></button>
-			<button><a href="cru.php">Modifier</a></button>
+		<!-- Je mets en argument "modif" l'id du film, pr être redirigé sur add_movie.php -->
+			<button><a href="add_movie.php?modif=<?= $value['mov_id'] ?>">Modifier</a></button>
 		</div>
 <?php
 	
