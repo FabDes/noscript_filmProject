@@ -35,11 +35,17 @@ if(!empty($_GET['the_search'])){
 	else if ($pdoStatement->rowCount()>0){
 		$search= $pdoStatement->fetchAll();
 		print_r($search);
+		$moveId = $search['mov_id'];
 	}
 	else {
 		echo 'aucun resultat';
 	}
 }
+
+//calcul du offset pour la page : arrondi supérieur round()
+//l'id représente le nombre de films précédents / pour le suivant
+$currentOffset = round($moveId/$nbFilm);
+ 
 
 // list catalogue
 
