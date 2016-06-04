@@ -46,55 +46,53 @@ if (isset($_POST) && !empty($_POST)) {
 	}
 	else {
 //-----------------AJOUT DU FILM-----------------
-		if (isset($_GET['search_OMDB']) && !empty($_GET['search_OMDB'])) {
-			$insql = '
-				INSERT INTO movie 
-				(
-					cat_id,
-					sto_id,
-					mov_title,
-					mov_release_date,
-					mov_cast,
-					mov_synopsis,
-					mov_path,
-					mov_original_title,
-					mov_image,
-					mov_date_creation
-				)
-				VALUES 
-				(
-					:category,
-					:storageType,
-					:mainTitle,
-					:releaseDate,
-					:casting,
-					:plot,
-					:storagePath,
-					:originTitle,
-					:posterPath,
-					NOW()
-				)
-			';
-			$pdoStIns = $pdo->prepare($insql);
-			$pdoStIns->bindValue(':category', $category, PDO::PARAM_INT);
-			$pdoStIns->bindValue(':storageType', $storageType, PDO::PARAM_INT);
-			$pdoStIns->bindValue(':mainTitle', $mainTitle);
-			$pdoStIns->bindValue(':releaseDate', $releaseDate);
-			$pdoStIns->bindValue(':casting', $casting);
-			$pdoStIns->bindValue(':plot', $plot);
-			$pdoStIns->bindValue(':storagePath', $storagePath);
-			$pdoStIns->bindValue(':originTitle', $originTitle);
-			$pdoStIns->bindValue(':posterPath', $posterPath);
-			if ($pdoStIns->execute()) {
-				$addValidation = 'Film ajouté !';
-			}
-			else {
-				print_r($pdoStIns->errorInfo());
-				$addValidation = 'erreur d\'envoi';
-			}
-		}//fin ajout
+		$insql = '
+			INSERT INTO movie 
+			(
+				cat_id,
+				sto_id,
+				mov_title,
+				mov_release_date,
+				mov_cast,
+				mov_synopsis,
+				mov_path,
+				mov_original_title,
+				mov_image,
+				mov_date_creation
+			)
+			VALUES 
+			(
+				:category,
+				:storageType,
+				:mainTitle,
+				:releaseDate,
+				:casting,
+				:plot,
+				:storagePath,
+				:originTitle,
+				:posterPath,
+				NOW()
+			)
+		';
+		$pdoStIns = $pdo->prepare($insql);
+		$pdoStIns->bindValue(':category', $category, PDO::PARAM_INT);
+		$pdoStIns->bindValue(':storageType', $storageType, PDO::PARAM_INT);
+		$pdoStIns->bindValue(':mainTitle', $mainTitle);
+		$pdoStIns->bindValue(':releaseDate', $releaseDate);
+		$pdoStIns->bindValue(':casting', $casting);
+		$pdoStIns->bindValue(':plot', $plot);
+		$pdoStIns->bindValue(':storagePath', $storagePath);
+		$pdoStIns->bindValue(':originTitle', $originTitle);
+		$pdoStIns->bindValue(':posterPath', $posterPath);
+		if ($pdoStIns->execute()) {
+			$addValidation = 'Film ajouté !';
+		}
+		else {
+			print_r($pdoStIns->errorInfo());
+			$addValidation = 'erreur d\'envoi';
+		}
 //-----------------MODIFICATION D'UN FILM-----------------
-		else if (isset($_GET['modif']) && !empty($_GET['modif'])) {		
+		if (isset($_GET['modif']) && !empty($_GET['modif'])) {		
 			$updateSql = '
 				UPDATE movie 
 				SET 
