@@ -27,7 +27,7 @@
 		<br>
 
 <!-- AJOUT du film trouvé sur OMDB -->
-		<?php if (isset($_GET['search_OMDB'])) : ?>
+		<?php if (isset($_GET['search_OMDB']) || empty($_GET)) : ?>
 			<form action="" method="post" enctype="multipart/form-data">
 				<label>Titre du film</label><br>
 			    <input type="text" name="add_film_title" value="<?php if (isset($fileGetTable['Title'])) {echo $fileGetTable['Title'];} ?>"><br>
