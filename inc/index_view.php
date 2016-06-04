@@ -12,8 +12,8 @@
 	<nav>
 		<ul>
 			<li><a href="index.php">Accueil</a></li>
-			<li><a href="categorie.php">Catégories</a></li>
-			<li><a href="crud.php">Ajouter un film</a></li>
+			<li><a href="cru.php">Catégories</a></li>
+			<li><a href="add_movie.php">Ajouter un film</a></li>
 		</ul>
 	</nav>
 	<form id="search_all" method="GET" action="catalog.php">
@@ -29,17 +29,28 @@
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	
-	<form  method="GET" action="catalog.php">
+<!-- Grande barre de recherche -->
+<!-- 
+	REVOIR LES BOUTONS ET LES TYPES SUBMIT DANS LES FORMS et se mettre d'accord : 
+	- button en dehors du form avec ciblage par id grâce à l'attribut form=
+	ou 
+	- input type submit dans le form pour valider. 
+-->
+	<form method="GET" action="catalog.php" id="searchBar">
 		<input id="the_search" type="search" placeholder="Recherche" name="the_search">
-		<button id="the_button" type="submit" name="OK">OK</button>
 	</form>
+	<button id="the_button" form="searchBar" type="submit">OK</button>
+
+<!-- Affiche les catégories et nombre de films -->
 	<nav id="nav_cat">
 		<ul>
 		<?php foreach ($categorySort as $key => $value):?>
-			<li><a href="#"><?= $value['cat_name'].' ('.$value[0].')'?></a></li>
+			<li><a href="#"><?= $value['cat_name'].' ('.$value['countMovies'].')'?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</nav>
+
+<!-- Affiche 4 films random -->
 	<?php foreach ($randomImg as $key => $value):?>
 	<div class="imgLien">
 		<img class="img_movie" src="<?= $value['mov_image'] ?>">

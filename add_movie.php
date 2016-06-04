@@ -31,7 +31,7 @@ storageFunction();
 
 //-----------------AJOUT DU FILM EN BDD-----------------
 if (isset($_POST) && !empty($_POST)) {
-	print_r($_POST);
+	//print_r($_POST);
 	$mainTitle = isset($_POST['add_film_title']) ? strip_tags(trim($_POST['add_film_title'])) : '';
 	$category = isset($_POST['categorie']) ? intval($_POST['categorie']) : '';
 	$releaseDate = isset($_POST['add_film_released']) ? strip_tags(trim($_POST['add_film_released'])) : '';
