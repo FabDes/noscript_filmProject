@@ -13,13 +13,14 @@ if(array_key_exists('offset', $_GET)){
 // the_search. 
 $search = array();
 if(!empty($_GET['the_search'])){
-	$theSearch = $_GET['the_search'];// type?
+	$theSearch = strip_tags(trim($_GET['the_search']));
 
 	$sqlSearch = '
 		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
 		FROM movie
 		INNER JOIN category ON category.cat_id = movie.cat_id
 		WHERE mov_title = :mov_title
+		OR cat_name = :mov_title
 		LIMIT :offset, :nbFilm
 	';
 

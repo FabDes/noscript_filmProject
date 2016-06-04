@@ -39,7 +39,7 @@
 	<nav id="nav_cat">
 		<ul>
 		<?php foreach ($categorySort as $key => $value):?>
-			<li><a href="#"><?= $value['cat_name'].' ('.$value['countMovies'].')'?></a></li>
+			<li><a href="catalog.php?the_search=<?= $value['cat_name'] ?>"><?= $value['cat_name'].' ('.$value['countMovies'].')'?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</nav>
@@ -48,7 +48,7 @@
 	<?php foreach ($randomImg as $key => $value):?>
 	<div class="imgLien">
 		<img class="img_movie" src="<?= $value['mov_image'] ?>">
-		<a class="titel_movie" href="#"><?= $value['mov_title'] ?></a>
+		<a class="titel_movie" href="catalog.php?the_search=<?= $value['mov_title'] ?>"><?= $value['mov_title'] ?></a>
 	</div>
 	<?php endforeach; ?>
 </body>
