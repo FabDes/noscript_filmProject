@@ -43,9 +43,9 @@
 }
 ?>	
 	<div>
-		<a href="catalog.php?the_search=<?=$theSearch ?>&offset=<?=($currentOffset-$nbFilm)?>">< Précédent</a>
-		<p>Page du catalogue</p>
-		<a href="catalog.php?the_search=<?= $theSearch ?>&offset=<?=($currentOffset+$nbFilm)?>">Suivant ></a>
+		<a href="catalog.php?the_search=<?=$theSearch ?>&offset=<?=($currentOffset-1)?>">< Précédent</a>
+		<p><? = $currentOffset ?></p>
+		<a href="catalog.php?the_search=<?= $theSearch ?>&offset=<?=($currentOffset+1)?>">Suivant ></a>
 	</div>
 
 </body>
