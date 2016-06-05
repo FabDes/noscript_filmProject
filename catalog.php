@@ -3,23 +3,24 @@
 require 'inc/db.php';
 //nb de film 
 
-$nbFilm = 3;
-$currentOffset= 0;
-	
-if(array_key_exists('offset', $_GET)){ 
+$nbFilm = isset($_GET['limit']) ? intval($_GET['limit']) : 3;
+
+$currentOffset= 0;	
+if(array_key_exists('offset', $_GET) && $_GET['offset']>0){ 
 	$currentOffset = intval($_GET['offset']);
 }
 
 // the_search. 
 $search = array();
 if(!empty($_GET['the_search'])){
-	$theSearch = $_GET['the_search'];// type?
+	$theSearch = strip_tags(trim($_GET['the_search']));
 
 	$sqlSearch = '
 		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
 		FROM movie
 		INNER JOIN category ON category.cat_id = movie.cat_id
 		WHERE mov_title = :mov_title
+		OR cat_name = :mov_title
 		LIMIT :offset, :nbFilm
 	';
 
@@ -34,8 +35,8 @@ if(!empty($_GET['the_search'])){
 	}
 	else if ($pdoStatement->rowCount()>0){
 		$search= $pdoStatement->fetchAll();
-		print_r($search);
-		$moveId = $search['mov_id'];
+		//print_r($search);
+		//$moveId = $search['mov_id']; Affiche tout le temps offset=1
 	}
 	else {
 		echo 'aucun resultat';
@@ -44,10 +45,10 @@ if(!empty($_GET['the_search'])){
 
 //calcul du offset pour la page : arrondi supérieur round()
 //l'id représente le nombre de films précédents / pour le suivant
-$currentOffset = round($moveId/$nbFilm);
- 
+//$currentOffset = round($moveId/$nbFilm);
+
+//modif ds le catalogue_view.php de la valeur du offset en GET,
+//ajout du nbre nbFilm grâce à un select récupéré en GET
 
 // list catalogue
-
-
 require 'inc/catalogue_view.php';
