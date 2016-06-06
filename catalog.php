@@ -62,7 +62,7 @@ else{
 	}
 	else if ($pdoStatement->rowCount()>0){
 		$emptySearch= $pdoStatement->fetchAll();
-		print_r($emptySearch);
+		//print_r($emptySearch);
 		//$moveId = $search['mov_id']; Affiche tout le temps offset=1
 	}
 }

@@ -17,7 +17,7 @@ if($pdoStatement->execute()===false){
 	print_r($pdo->errorInfo());
 }elseif($pdoStatement->rowCount()>0){
 	$detailsMovie=$pdoStatement->fetch();
-	print_r($detailsMovie);
+	//print_r($detailsMovie);
 }
 
 require 'inc/movie_view.php';
