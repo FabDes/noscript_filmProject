@@ -79,7 +79,7 @@
 		<?php endif; ?>
 
 <!-- MODIFIER un film choisi dans catalog.php -->
-		<?php if (isset($_GET['modif'])) : ?>
+		<?php if (isset($_GET['modif']) && !empty($_GET['modif'])) : ?>
 			<h3><?= $updateMovie.' '.$getFilmDB['mov_title'] ?></h3>
 
 			<form action="" method="post" enctype="multipart/form-data">
