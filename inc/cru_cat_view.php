@@ -2,8 +2,12 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Ajout / Modification d'une catégorie</title>
+	<title>Catalogue</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
+<main>
 <header>
 	<nav>
 		<ul>
@@ -12,11 +16,13 @@
 			<li><a href="#">Ajouter un film</a></li>
 		</ul>
 	</nav>
-	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
+	<form id="search_all" method="GET" action="catalog.php">
+		<input type="search" placeholder="Recherche" name="the_search">
+		<button type="submit" name="OK">OK</button>
+	</form>
 </header>
 <body>
-	<div>
+	<div id="cru">
 		<h3>Gestion des catégories</h3>
 
 		<form action="" method="post">
