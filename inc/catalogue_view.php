@@ -58,6 +58,10 @@
 	<!-- offset+limit => donne en tout premier lieu 0, et puis, 0+3 c-à-d on affiche à partir de 0 jusqu'à 2, et puis, on affiche à partir de 3 jusqu'à 5, etc -->
 		<a href="catalog.php?the_search=<?=$theSearch ?>&offset=<?=($currentOffset-$nbFilm)?>&limit=<?= $nbFilm ?>">< Précédent</a>
 		<a href="catalog.php?the_search=<?= $theSearch ?>&offset=<?=($currentOffset+$nbFilm)?>&limit=<?= $nbFilm ?>">Suivant ></a>
+		<a href="catalog.php?the_search=<?=$theSearch ?>&offset=<?=($currentOffset-1)?>">< Précédent</a>
+		<p><? = $currentOffset ?></p>
+		<a href="catalog.php?the_search=<?= $theSearch ?>&offset=<?=($currentOffset+1)?>">Suivant ></a>
+
 	</div>
 </body>
 </html>
