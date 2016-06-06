@@ -2,10 +2,11 @@
 // je factorise et je cree PDO et j inclus DB
 require 'inc/db.php';
 
+/* Affiche catégories et nombre de films */
 $categorySort= array();
 
 $sql='
-	SELECT COUNT(mov_id), category.cat_name
+	SELECT COUNT(mov_id) AS countMovies, category.cat_name
 	FROM movie
 	INNER JOIN category ON category.cat_id = movie.cat_id
 	GROUP BY cat_name
@@ -14,13 +15,14 @@ $sql='
 $pdoStatement = $pdo->prepare($sql);
 
 if ($pdoStatement->execute() === false){
-	print_r($pdo->errorInfo());
+	print_r($pdoStatement->errorInfo());
 }
 else if ($pdoStatement->rowCount()>0){
 	$categorySort= $pdoStatement->fetchAll();
-	print_r($categorySort);
+	//print_r($categorySort);
 }
 
+/* Affiche 4 films random */
 $randomImg= array();
 
 $sql='
@@ -32,31 +34,11 @@ $sql='
 $pdoStatement = $pdo->prepare($sql);
 
 if ($pdoStatement ->execute() === false){
-	print_r($pdo->errorInfo());
+	print_r($pdoStatement->errorInfo());
 }
 else if ($pdoStatement->rowCount()>0){
 	$randomImg= $pdoStatement->fetchAll();
-	print_r($randomImg);
+	//print_r($randomImg);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 require 'inc/index_view.php';
