@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Documentation du projet en &eacute;quipe</title>
+ <meta charset="UTF-8"> 
+<style type="text/css">
+HTML, BODY {
+	font-family: Tahoma, Verdana, sans-serif;
+	padding-bottom: 100px;
+	background : #F0F0F0;
+}
+H1 {
+	color : #000055;
+	text-decoration: underline;
+}
+H2 {
+	color : #000099;
+	text-decoration: underline;
+}
+H3 {
+	color : #0000CC;
+	text-decoration: underline;
+}
+ul {
+	background: white;
+}
+</style>
+</head>
+<body>
+	<h1>Documentation du projet en &eacute;quipe</h1>
+	<<h2>API REST (ou RESTful)</h2>
+	<ul>
+		<li><a href="http://blog.veeble.org/wp-content/uploads/2015/11/rest.png">Indifférent du langage</a>, utilise le protocole HTTP simple</li>
+		<li>CRUD avec les méthodes GET, POST, PUT, DELETE : <a href="http://www.restapitutorial.com/lessons/httpmethods.html">aide simple</a></li>
+		<li>Exemple d'API RESTful bien faite avec documentation claire et intuitive : <a href="https://api.ovh.com/console/">API OVH</a></li>
+	</ul>
+	<h2>SQL</h2>
+	<h3>Jointures</h3>
+	<p>Exemples simples avec le projet GCLF</p>
+	<ul>
+		<li>Doc : <a href="http://sql.sh/cours/jointures">http://sql.sh/cours/jointures</a></li>
+		<li>Jointure simple entre 2 tables : <pre>SELECT fil_titre, sup_nom
+FROM film
+INNER JOIN support ON support.sup_id = film.sup_id</pre></li>
+		<li>Si la valeur de sup_id dans film n'existe pas, mais qu'on veut quand même la ligne : <pre>SELECT *
+FROM film
+LEFT OUTER JOIN support ON support.sup_id = film.sup_id</pre>=> renvoi la valeur NULL pour le champ sup_nom</li>
+	</ul>
+	<h3>Sous-requêtes</h3>
+	<p>Exemples simples avec le projet GCLF</p>
+	<ul>
+		<li>Doc : <a href="http://sql.sh/cours/sous-requete">http://sql.sh/cours/sous-requete</a></li>
+		<li>Je veux tous les supports de la catégorie "Aventure" (=> jointures entre 3 tables) : <pre>SELECT sup_nom
+FROM support
+INNER JOIN film ON support.sup_id = film.sup_id
+INNER JOIN categorie ON categorie.cat_id = film.cat_id
+WHERE cat_nom = "Aventure"</pre></li>
+		<li>La même chose mais en utilisant une sous-requête : <pre>SELECT sup_nom
+FROM support
+WHERE sup_id IN (
+	SELECT sup_id
+	FROM film
+	INNER JOIN categorie ON categorie.cat_id = film.cat_id
+	WHERE cat_nom = "Aventure"
+)</pre></li>
+		<li>Je veux le support du dernier film ajouté en DB : <pre>SELECT *
+FROM support
+INNER JOIN film ON film.sup_id = support.sup_id
+WHERE fil_id IN (
+	SELECT MAX(fil_id) AS max_film_id
+	FROM film
+)</pre></li>
+		<li>Je veux tous les supports, sauf ceux de la catégorie "Aventure" : <pre>SELECT *
+FROM support
+WHERE sup_id NOT IN (
+	SELECT sup_id
+	FROM film
+	INNER JOIN categorie ON categorie.cat_id = film.cat_id
+	WHERE cat_nom = "Aventure"
+)</pre></li>
+	</ul>
+	<strong>EXERCICE 1</strong><br />
+	<ul>
+		<li>écrire la requête SQL me permettant d'avoir tous les films de la première catégorie saisie en DB</li>
+		<!--<li><pre>SELECT *
+FROM film
+WHERE cat_id = (
+	SELECT cat_id
+	FROM categorie
+	ORDER BY `cat_created` ASC
+	LIMIT 1
+)</pre></li>
+		<li> ou <pre>SELECT *
+FROM film
+WHERE cat_id IN (
+	SELECT MIN(cat_id)
+	FROM categorie
+)</pre></li>-->
+	</ul>
+	<!--<h2>Expressions régulières (Regexp)</h2>
+	<ul>
+		<li>Editer et tester en ligne ses regex <a href="https://regex101.com/">https://regex101.com/</a></li>
+	</ul>-->
+</body>
+</html>
