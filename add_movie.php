@@ -22,6 +22,18 @@ if (isset($_GET['search_OMDB'])) {
 	else {
 		echo 'veuillez saisir une recherche';
 	}
+	if (!empty($searchOMDB)) {
+		//En STRING, on récupère les infos sur le film de IMDB en json 
+		//aller tester "Examples By Title" sur http://www.omdbapi.com/ => on utilise la request en mettant au paramètre "t=" notre mot entré en recherche.
+		$fileGetLong = file_get_contents("http://www.omdbapi.com/?t=". $searchOMDB ."&y=&plot=full&r=json");
+		//echo $fileGet;
+
+		//on transforme la string en TABLEAU 
+		$fileGetTableLong = json_decode($fileGetLong, true);
+		//print_r($fileGetTable);
+		//duquel on va récupérer les valeurs pour les afficher dans le formulaire html.
+		print_r($fileGetTableLong);
+	}
 }
 
 //function qui affiche mon select catégorie de films
@@ -40,6 +52,7 @@ if (isset($_POST) && !empty($_POST)) {
 	$storageType = isset($_POST['storage']) ? intval($_POST['storage']) : '';
 	$originTitle = isset($_POST['add_film_VO_title']) ? strip_tags(trim($_POST['add_film_VO_title'])) : '';
 	$posterPath = isset($_POST['add_film_pic']) ? strip_tags(trim($_POST['add_film_pic'])) : '';
+	$movDescri = $fileGetTableLong['Plot'];
 
 	if (empty($mainTitle)) {
 		$mainTitleError = 'Titre requis';
@@ -58,7 +71,8 @@ if (isset($_POST) && !empty($_POST)) {
 				mov_path,
 				mov_original_title,
 				mov_image,
-				mov_date_creation
+				mov_date_creation,
+				mov_descri
 			)
 			VALUES 
 			(
@@ -71,7 +85,8 @@ if (isset($_POST) && !empty($_POST)) {
 				:storagePath,
 				:originTitle,
 				:posterPath,
-				NOW()
+				NOW(),
+				:movDescri
 			)
 		';
 		$pdoStIns = $pdo->prepare($insql);
@@ -84,6 +99,7 @@ if (isset($_POST) && !empty($_POST)) {
 		$pdoStIns->bindValue(':storagePath', $storagePath);
 		$pdoStIns->bindValue(':originTitle', $originTitle);
 		$pdoStIns->bindValue(':posterPath', $posterPath);
+		$pdoStIns->bindValue(':movDescri', $movDescri);
 		if ($pdoStIns->execute()) {
 			$addValidation = 'Film ajouté !';
 		}

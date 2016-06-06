@@ -17,23 +17,17 @@
 </header>
 <body>
 	<section class="gauche">
-		<img src="../img/Fast.jpg">
-		<h3>Sortie en </h3>
-		<h3>Support </h3>
+		<img src="<?= $detailsMovie['mov_image'] ?>">
+		<h3>Sorti le : <?= $detailsMovie['mov_release_date'] ?></h3>
+		<h3>Support : <?= $detailsMovie['sto_name'] ?></h3>
 	</setion>
 	<section class="droite">
-		<h3><a href="#">Titre du film</a></h3> 
-		<h3>Catégorie</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<h3><a href="#"><?= $detailsMovie['mov_title'] ?></a></h3> 
+		<h3>Catégorie : <?= $detailsMovie['cat_name'] ?></h3>
+		<p><?= $detailsMovie['mov_descri'] ?></p>
+		<p>Casting : <?= $detailsMovie['mov_cast'] ?></p>
 		<br>
-		<p>Acteurs et actrices</p>
-		<br>
-		<p>chemin de la zone de stockage</p>
+		<p>Chemin de la zone de stockage : <br><?= $detailsMovie['mov_path'] ?></p>
 	</setion>
 </body>
 </html>
