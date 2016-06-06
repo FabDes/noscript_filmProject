@@ -41,6 +41,29 @@ if(!empty($_GET['the_search'])){
 	else {
 		echo 'aucun resultat';
 	}
+}else{
+	$sqlSearch = '
+		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
+		FROM movie
+		INNER JOIN category ON category.cat_id = movie.cat_id
+		ORDER BY RAND()
+		LIMIT :offset, :nbFilm
+	';
+
+	$pdoStatement = $pdo->prepare($sqlSearch);
+
+	$pdoStatement->bindValue(':mov_title', $theSearch, PDO::PARAM_STR);
+	$pdoStatement->bindValue(':nbFilm', $nbFilm, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':offset', $currentOffset, PDO::PARAM_INT);
+
+	if ($pdoStatement->execute() === false){
+		print_r($pdoStatement->errorInfo());
+	}
+	else if ($pdoStatement->rowCount()>0){
+		$search= $pdoStatement->fetchAll();
+		//print_r($search);
+		//$moveId = $search['mov_id']; Affiche tout le temps offset=1
+	}
 }
 
 //calcul du offset pour la page : arrondi supérieur round()
