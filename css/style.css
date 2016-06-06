@@ -47,7 +47,6 @@ nav ul li a{
   	padding: 10px;
   	vertical-align: top;
 }
-
 nav a:hover{
 	background-color: #6c9ce4;
 }
@@ -121,6 +120,17 @@ input, {
 }
 .imgLien a:hover{
 	background-color: #6c9ce4;
+}
+.right_button{
+	display: block;
+	text-align: center;
+	width: 150px;
+  	height: 40px;
+  	background-color:  #c0c0c2;
+  	color: #FFFFFF;
+  	border: 1px solid #FFFFFF;
+  	text-transform: uppercase;
+  	padding: 10px;
 }
 select{
 	width: 150px;

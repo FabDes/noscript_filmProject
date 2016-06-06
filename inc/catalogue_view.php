@@ -35,11 +35,10 @@
 ?>
 		<div class="movieCat">
 			<img src="<?= $value['mov_image'] ?>">
-			<p>#<?= $value['mov_id'] ?></p>
-			<h1><?= $value['mov_title'] ?></h1>
+			<h1>#<?= $value['mov_id'] ?><?= $value['mov_title'] ?></h1>
 			<p><?= $value['mov_synopsis'] ?></p>
-			<button><a href="details.php">Détails</a></button>
-			<button><a href="cru.php">Modifier</a></button>
+			<button class="right_button"><a href="details.php">Détails</a></button>
+			<button class="right_button"><a href="cru.php">Modifier</a></button>
 		</div>
 <?php
 	

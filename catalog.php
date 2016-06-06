@@ -34,7 +34,7 @@ if(!empty($_GET['the_search'])){
 	}
 	else if ($pdoStatement->rowCount()>0){
 		$search= $pdoStatement->fetchAll();
-		print_r($search);
+		//print_r($search);
 	}
 	else {
 		echo 'aucun resultat';
