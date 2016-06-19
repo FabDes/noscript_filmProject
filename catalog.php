@@ -12,8 +12,8 @@ if(array_key_exists('offset', $_GET) && $_GET['offset']>0){
 
 // the_search. 
 $search = array();
-if(!empty($_GET['the_search'])){
-	$theSearch = strip_tags(trim($_GET['the_search']));
+if(isset($_GET['the_search']) && !empty($_GET['the_search'])){
+	$theSearch = isset($_GET['the_search']) ? strip_tags(trim($_GET['the_search'])) : '';
 
 	$sqlSearch = '
 		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
@@ -40,6 +40,30 @@ if(!empty($_GET['the_search'])){
 	}
 	else {
 		echo 'aucun resultat';
+	}
+}
+else{
+	$sqlNoSearch = '
+		SELECT mov_id, mov_title, category.cat_id, cat_name, mov_synopsis, mov_path, mov_cast, mov_image
+		FROM movie
+		INNER JOIN category ON category.cat_id = movie.cat_id
+		ORDER BY RAND()
+		
+	';
+
+	$pdoStatement = $pdo->prepare($sqlNoSearch);
+
+	$pdoStatement->bindValue(':mov_title', $theSearch, PDO::PARAM_STR);
+	$pdoStatement->bindValue(':nbFilm', $nbFilm, PDO::PARAM_INT);
+	$pdoStatement->bindValue(':offset', $currentOffset, PDO::PARAM_INT);
+
+	if ($pdoStatement->execute() === false){
+		print_r($pdoStatement->errorInfo());
+	}
+	else if ($pdoStatement->rowCount()>0){
+		$emptySearch= $pdoStatement->fetchAll();
+		//print_r($emptySearch);
+		//$moveId = $search['mov_id']; Affiche tout le temps offset=1
 	}
 }
 
