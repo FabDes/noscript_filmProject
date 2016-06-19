@@ -12,9 +12,8 @@ function categoryFunction() {
 	}
 	else {
 		if ($pdoStatement->rowCount() > 0) {
-			global $selectCategory; //je rends "global" mon tableau, qui s'affiche en select html pour les catégories de films.
-			$selectCategory = $pdoStatement->fetchAll();
-			//print_r($selectCategory);
+			return $pdoStatement->fetchAll();
+			//return pr récupérer un tableau en appelant la fonction
 		}
 	}
 }
@@ -31,8 +30,6 @@ function storageFunction() {
 		print_r($pdo->errorInfo());
 	}
 	else if ($pdoStmt->rowCount() > 0) {
-		global $selectStorage;
-		$selectStorage = $pdoStmt->fetchAll();
-		//print_r($selectStorage);
+		return $pdoStmt->fetchAll();
 	}
 }

@@ -5,7 +5,7 @@ require 'inc/db.php';
 require 'inc/functions.php';
 
 //function qui affiche mon select catégorie de films
-categoryFunction();
+$selectCategory = categoryFunction();
 
 if (isset($_POST) && !empty($_POST)) {
 	$newNameCat = isset($_POST['renameCategorie']) ? strip_tags(trim($_POST['renameCategorie'])) : '';
@@ -26,7 +26,7 @@ if (isset($_POST) && !empty($_POST)) {
 		$pdoCreate = $pdo->prepare($sqlNewCat);
 		$pdoCreate->bindValue(':newNameCat', $newNameCat);
 		if ($pdoCreate->execute()) {
-			echo 'nouvelle cat créée<br>';
+			$validationCru = 'nouvelle catégorie créée<br>';
 		}
 		else {
 			print_r($pdoCreate->errorInfo());
@@ -44,7 +44,7 @@ if (isset($_POST) && !empty($_POST)) {
 		$pdoUpdate->bindValue(':newName', $newNameCat);
 		$pdoUpdate->bindValue(':catId', $updateCat);
 		if ($pdoUpdate->execute()) {
-			echo 'catégorie modifiée';
+			$validationCru = 'catégorie modifiée';
 		}
 		else {
 			print_r($pdoCreate->errorInfo());
@@ -52,4 +52,6 @@ if (isset($_POST) && !empty($_POST)) {
 	}
 }//fin isset $_post
 
+require 'inc/header.php';
 require 'inc/cru_cat_view.php';
+require 'inc/footer.php';

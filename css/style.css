@@ -6,11 +6,10 @@
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-main{
-	width: 1000px;
-	margin: 30px auto;
-}
+/* Problème de <body> dans <main> */
 body{
+	height: 100%;
+	width: 100%;
 	background-color: #ececed ;
 	font-family: Ubuntu;
 	color:  #2c2d2d;
@@ -23,29 +22,46 @@ a{
 	text-decoration: none;
 }
 p {
+	display: block;
+	width: 90%;
 	text-align: justify;
-	margin: auto 100px;
+	margin: 0 auto;
 }
-
+header {
+	height: auto;
+	padding-top: 5px;
+}
 nav{
 	text-align: left;
 	display: inline-block;
-
+}
+nav ul {
+	height: auto;
+	width: auto;
 }
 nav ul li{
 	display: inline-block;
+	position: relative;
+	top: -21px;
 }
 nav ul li a{
 	width: 150px;
   	height: 40px;
   	background-color:  #c0c0c2;
   	color: #FFFFFF;
-  	display: inline-block;
+/*   	display: inline-block; */
   	border: 1px solid #FFFFFF;
   	text-transform: uppercase;
   	text-align: center;
   	padding: 10px;
-  	vertical-align: top;
+}
+.noscript_logo img {
+	height: 100%;
+	position: relative;
+	top: 20px;
+}
+.noscript_logo {
+	margin-right: 20px;
 }
 
 nav a:hover{
@@ -54,8 +70,12 @@ nav a:hover{
 
 #search_all{
 	float: right;
+	width: auto;
+	position: relative;
 }
-
+#search_all input {
+	width: 70%;
+}
 img{
 	width: 150px;
   	height: 200px;
@@ -73,20 +93,24 @@ p{
 	margin: 50px auto;
 }
 
-
+#bigSearchBar {
+	height: auto;
+	width: 100%;
+	margin: 0 15%;
+}
 #the_search{
-	width: 500px;
+	display: inline-block;
+	width: 55%;
 	height: 100px;
 	padding: 10px;
-	margin-left: 200px;
-	margin-bottom: 50px;
 }
 #the_button{
-	width: 100px;
+	display: inline-block;
+	width: 10%;
 	height: 100px;
 }
 
-input, {
+input {
 	width: 20px;
 	padding: 10px;
 	margin : 10px 0 ;
@@ -94,13 +118,17 @@ input, {
 #nav_cat{
 	display: block;
 	text-align: center;
-	margin-bottom: 50px;
-
-
+	margin: 50px 0;
+}
+.imgLienFrame {
+	height: auto;
+	width: 100%;
+	display: flex;
 }
 .imgLien{
-	display: inline-block;
-	margin-left: 78px;
+	margin-left: 12%;
+	flex-flow: row wrap;
+	justify-content: space-around;
 }
 .img_movie{
 	display: inline-block;
@@ -134,4 +162,61 @@ select{
 option{
 	text-align: center;
 }
+.frameCat {
+	height: auto;
+	width: 30%;
+	position: absolute;
+	margin: 10% 35%;
+	padding: 0 10px;
+}
+h3 {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
+.frameCat form {
+	height: auto;
+	width: auto;
+}
+.frameCat select, .frameCat input {
+	width: 100%;
+}
+.frameCat button {
+	width: 150px;
+}
+.helpboxAnim {
+	background-color: white;
+	opacity: 1;
+	transform: scaleY(1);
+	animation-name: animationHelpbox;
+	animation-duration: 0.3s;
+	animation-timing-function: ease-out;
+}
+@keyframes animationHelpbox {
+	0% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+#validationCru, .validAddMov {
+	background-color: #66CC99;
+	color: white;
+	margin-bottom: 15px;
+	padding-left: 5px;
+}
+.content input {
+	width: 48%;
+}
+.content .btnOmdb {
+	width: 15%;
+}
 
+@media all and (max-width:900px) {
+	.frameCat {
+		width: 100%;
+		margin: 10% 0;
+	}
+}

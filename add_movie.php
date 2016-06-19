@@ -23,23 +23,19 @@ if (!empty($_GET['search_OMDB'])) {
 		echo 'veuillez saisir une recherche';
 	}
 	if (!empty($searchOMDB)) {
-		//En STRING, on récupère les infos sur le film de IMDB en json 
-		//aller tester "Examples By Title" sur http://www.omdbapi.com/ => on utilise la request en mettant au paramètre "t=" notre mot entré en recherche.
+		//On change le &plot=short en =full
 		$fileGetLong = file_get_contents("http://www.omdbapi.com/?t=". $searchOMDB ."&y=&plot=full&r=json");
-		//echo $fileGet;
+		//echo $fileGetLong;
 
 		//on transforme la string en TABLEAU 
 		$fileGetTableLong = json_decode($fileGetLong, true);
-		//print_r($fileGetTable);
-		//duquel on va récupérer les valeurs pour les afficher dans le formulaire html.
-		//print_r($fileGetTableLong);
 	}
 }
 
 //function qui affiche mon select catégorie de films
-categoryFunction();
+$selectCategory = categoryFunction();
 //function qui affiche mon select stockage des films
-storageFunction();
+$selectStorage = storageFunction();
 
 //récupération des champs des formulaires, ils ont les mm name= dans les 2
 if (isset($_POST) && !empty($_POST)) {
@@ -177,4 +173,6 @@ print_r($_POST);
 echo '<hr>';
 print_r($_GET);
 */
+require 'inc/header.php';
 require 'inc/add_movie_view.php';
+require 'inc/footer.php';
