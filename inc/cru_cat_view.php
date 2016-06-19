@@ -1,38 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Ajout / Modification d'une catégorie</title>
-</head>
-<header>
-	<nav>
-		<ul>
-			<li><a href="#">Accueil</a></li>
-			<li><a href="#">Catégories</a></li>
-			<li><a href="#">Ajouter un film</a></li>
-		</ul>
-	</nav>
-	<input type="search" placeholder="Recherche" name="the_search">
-	<button type="submit" name="OK">OK</button>
-</header>
-<body>
-	<div>
-		<h3>Gestion des catégories</h3>
-
-		<form action="" method="post">
-		    <select name="categorie" size="1">
-		    	<option value="new">Nouvelle catégorie</option> 
-		    	<?php foreach ($selectCategory as $key => $value) : ?>
-			    	<option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option> 		
-		    	<?php endforeach; ?>
-			</select>
-			<br>
-	   
-	    	<input type="text" name="renameCategorie">
-	    	<br>
-	    	
-	    	<button type="submit">Valider</button>
-	    </form>
-	</div>
-</body>
-</html>
+<div class="frameCat">
+	<h3>Gestion des catégories :</h3>
+	<h4 id="validationCru"><?php if (isset($validationCru)) {echo $validationCru;} ?></h4>
+	<h4 id="helpbox">Ajouter une catégorie</h4>
+	<form action="" method="post">
+	    <select name="categorie" size="1" id="catSelection">
+	    	<option value="new">Nouvelle catégorie</option>
+	    	<?php foreach ($selectCategory as $key => $value) : ?>
+		    	<option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option> 		
+	    	<?php endforeach; ?>
+		</select>
+		<br>
+   
+    	<input type="text" name="renameCategorie">
+    	<br>
+    	
+    	<button type="submit">Valider</button>
+    </form>
+</div>
+<!-- SELECT ON CHANGING OPTIONS -->
+<script type="text/javascript">
+	var catSelection = document.getElementById("catSelection");
+	var helpbox = document.getElementById("helpbox");
+	catSelection.addEventListener("change", function() {
+		var indexOption = catSelection.selectedIndex;
+		var selectedText = catSelection.options[catSelection.selectedIndex].text;
+		//console.log(indexOption);
+		//console.log(selectedText);
+		if (indexOption == "0") {
+			helpbox.textContent = "Ajouter une nouvelle catégorie";
+			helpbox.classList.add("helpboxAnim");
+		}
+		else {
+			helpbox.textContent = "Modifier : " + selectedText;
+			helpbox.classList.add("helpboxAnim");
+		}
+	});
+</script>

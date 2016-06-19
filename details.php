@@ -20,4 +20,6 @@ if($pdoStatement->execute()===false){
 	//print_r($detailsMovie);
 }
 
+require 'inc/header.php';
 require 'inc/movie_view.php';
+require 'inc/footer.php';

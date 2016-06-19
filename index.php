@@ -41,4 +41,6 @@ else if ($pdoStatement->rowCount()>0){
 	//print_r($randomImg);
 }
 
+require 'inc/header.php';
 require 'inc/index_view.php';
+require 'inc/footer.php';
